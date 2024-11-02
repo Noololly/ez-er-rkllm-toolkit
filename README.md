@@ -7,6 +7,7 @@ I got tired of manually downloading models from HuggingFace using git-lfs, authe
 As a result, I wrote these two scripts to download models from HuggingFace, convert them, pull all .json files from the original repo, and then insert a block of text into the model card (see below) before finally uploading everything to HuggingFace.
 
 Original repo is here: (RKLLM)[https://github.com/airockchip/rknn-llm]
+
 Initial testing was done using Pelochus' EZ RKNN-LLM container found in this repo: (ezrknn-llm)[https://github.com/Pelochus/ezrknn-llm/]
 
 For more information, and useful links, please check out the (RockchipNPU subreddit)[https://reddit.com/r/RockchipNPU]
@@ -17,6 +18,8 @@ Conversion tests done on consumer grade hardware:
 - GA-AX370-Gaming K5 Motherboard
 - 2 x G.SKILL Ripjaws V Series DDR4 RAM 32GB, 64GB total
 - NVIDIA GeForce GTX 780 (not used in this experiment)
+
+Also performed conversion using an Intel X5650 CPU, which uses DDR3 RAM and does not support AVX.
 
 ## How to use
 
