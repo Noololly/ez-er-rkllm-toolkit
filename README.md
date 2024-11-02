@@ -25,7 +25,7 @@ There are two scripts in here - an interactive, and a non-interactive version. I
 To get started, clone this repository:
 
 ```bash
-git clone https://github.com/c0zaut/ez-er-rkllm.git
+git clone -b v1.1.0 https://github.com/c0zaut/ez-er-rkllm.git
 ```
 
 To do a one-shot conversion in an interactive shell:
