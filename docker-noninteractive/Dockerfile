@@ -14,7 +14,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
 
 COPY ./rkllm_toolkit-1.1.0-cp38-cp38-linux_x86_64.whl /root/wheels
 
-RUN python3 -m pip install inquirer /root/wheels/rkllm_toolkit-1.1.0-cp38-cp38-linux_x86_64.whl 
+RUN python3 -m pip install inquirer /root/wheels/rkllm_toolkit-1.1.0-cp38-cp38-linux_x86_64.whl xformers
 
 COPY ./noninteractive_pipeline.py /root/toolkit/
 
