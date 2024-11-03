@@ -79,11 +79,11 @@ Of course, feel free to adjust the model card template under the HubHelpers clas
             f'This version of {self.model_name} has been converted to run on the {self.platform.upper()} NPU using {self.qtype} quantization.\n\n' + \
             f'This model has been optimized with the following LoRA: {self.lora_id}\n\n' + \
             f'Compatible with RKLLM version: {self.rkllm_version}\n\n' + \
-            f'Useful links:\n' + \
-            f'(Official RKLLM GitHub)[https://github.com/airockchip/rknn-llm)\n' + \
-            f'(RockhipNPU Reddit)[https://reddit.com/r/RockchipNPU]\n' + \
-            f'(EZRKNN-LLM)[https://github.com/Pelochus/ezrknn-llm/]\n' + \
-            f'Pretty much anything by these folks: (marty1885)[https://github.com/marty1885] and (happyme531)[https://huggingface.co/happyme531]\n' + \
+            f'###Useful links:\n' + \
+            f'[Official RKLLM GitHub](https://github.com/airockchip/rknn-llm) \n\n' + \
+            f'[RockhipNPU Reddit](https://reddit.com/r/RockchipNPU) \n\n' + \
+            f'[EZRKNN-LLM](https://github.com/Pelochus/ezrknn-llm/) \n\n' + \
+            f'Pretty much anything by these folks: [marty1885][https://github.com/marty1885] and [happyme531](https://huggingface.co/happyme531) \n\n' + \
             f'# Original Model Card for base model, {self.model_name}, below:\n\n' + \
             f'{self.card_in.text}'
         try:
@@ -105,7 +105,7 @@ Model conversion utilizes anywhere from 2-4x the size of the original model, whi
 
 ## Compatibility and Testing
 
-Models converted using the Python 3.10 and RKLLM v1.1.1 packages do appear to be backwards compatible with the v1.1.0 runtime! So far, only (Llama 3.2 3B Instruct)[https://huggingface.co/c01zaut/Llama-3.2-3B-Instruct-rk3588-1.1.1/blob/main/Llama-3.2-3B-Instruct-rk3588-w8a8_g128-opt-0-hybrid-ratio-1.0.rkllm] has been tested. Check out (u/DimensionUnlucky4046)[https://www.reddit.com/user/DimensionUnlucky4046/]'s pipeline in this (Reddit thread)[https://www.reddit.com/r/RockchipNPU/comments/1gi2web/llama3_for_rk3588_available/] 
+Models converted using the Python 3.10 and RKLLM v1.1.1 packages do appear to be backwards compatible with the v1.1.0 runtime! So far, only [Llama 3.2 3B Instruct](https://huggingface.co/c01zaut/Llama-3.2-3B-Instruct-rk3588-1.1.1/blob/main/Llama-3.2-3B-Instruct-rk3588-w8a8_g128-opt-0-hybrid-ratio-1.0.rkllm) has been tested. Check out [u/DimensionUnlucky4046](https://www.reddit.com/user/DimensionUnlucky4046/)'s pipeline in this [Reddit thread](https://www.reddit.com/r/RockchipNPU/comments/1gi2web/llama3_for_rk3588_available/) 
 
 ## To do
 
