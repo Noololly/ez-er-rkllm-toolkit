@@ -101,14 +101,14 @@ Of course, feel free to adjust the model card template under the HubHelpers clas
 
 ## Utilization
 
-Model conversion utilizes anywhere from 2-4x the size of the original model, which means that you need an equal amount of memory. I compensated for this with swap files of varying size. Since I just leave the process running overnight (I have low upload speeds,) the performance hit from using swap files vs partitions doesn't bother me much. If performance is critical, I would recommend at least 512GB of DDR4 RAM with a lot of cores to handle especially large models.
+Model conversion utilizes anywhere from 2-4x the size of the original model, which means that you need an equal amount of memory. I compensated for this with swap files of varying size. Since I just leave the process running overnight (I have low upload speeds,) the performance hit from using swap files vs partitions doesn't bother me much. If performance is critical, I would recommend at least 192GB - 512GB of DDR4 RAM with a lot of cores to handle especially large models. For evaluation and chat simulation, a CPU with AVX* support is also recommended.
 
-Based on my comparisons of the APIs, these scripts should also be compatible with RKLLM v1.1.1 and Python 3.10. I just haven't tested them yet.
+## Compatibility and Testing
 
-If you do, please be sure to update the hard-coded rkllm-version variable in the RKLLMRemotePipeline class.
+Models converted using the Python 3.10 and RKLLM v1.1.1 packages do appear to be backwards compatible with the v1.1.0 runtime! So far, only (Llama 3.2 3B Instruct)[https://huggingface.co/c01zaut/Llama-3.2-3B-Instruct-rk3588-1.1.1/blob/main/Llama-3.2-3B-Instruct-rk3588-w8a8_g128-opt-0-hybrid-ratio-1.0.rkllm] has been tested. Check out (u/DimensionUnlucky4046)[https://www.reddit.com/user/DimensionUnlucky4046/]'s pipeline in this (Reddit thread)[https://www.reddit.com/r/RockchipNPU/comments/1gi2web/llama3_for_rk3588_available/] 
 
-To do:
+## To do
 
 - Test with LoRA
-- Test with multimodal models (currently only converted txt2txt)
-- Update to use the newer version of RKLLM, 1.1.1 (most likely after 0.9.8 of the kernel driver is in Armbian)
+- Test with full RAG pipeline
+- Test with multimodal models
