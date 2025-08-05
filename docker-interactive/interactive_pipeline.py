@@ -5,6 +5,7 @@ from pathlib import Path
 import inquirer
 import shutil
 import os
+import tarfile
 
 class RKLLMRemotePipeline:
     def __init__(self, model_id="", lora_id="", platform="rk3588", 
@@ -304,7 +305,17 @@ class HubHelpers:
         self.commit_info = self.hf_api.upload_folder(repo_id=self.repo_id, folder_path=self.export_path)
         print(self.commit_info)
 
+def save_model():
+    shutil.copytree(src=rk.model_dir, dst="/root/toolkit/artifacts", ignore=shutil.ignore_patterns('*.safetensors', '*.pt*', '*.bin', '*.gguf', 'README*', '.cache', '.gitattributes'),
+                    copy_function=shutil.copy2, dirs_exist_ok=True)
+    
+    shutil.copy2(src=f'{rk.export_path}{rk.export_name}.rkllm', dst='./artifacts/')
+    
+
+
 if __name__ == "__main__":
+    save_local = os.getenv("SAVE_LOCAL")
+    save_local = True if save_local == "1" else False # convert from string to boolean
 
     rk = RKLLMRemotePipeline()
     rk.user_inputs()
@@ -319,7 +330,10 @@ if __name__ == "__main__":
     except RuntimeError as e:
         print(f"Model conversion failed: {e}")
     
-
-    hf.upload_to_repo(model=rk.model_name, import_path=rk.model_dir, export_path=rk.export_path)
-    print("Okay, these models are really big!")
-    rk.cleanup_models("./models")
+    if save_local:
+        save_model()
+    else:
+        hf.upload_to_repo(model=rk.model_name, import_path=rk.model_dir, export_path=rk.export_path)
+        print("Okay, these models are really big!")
+        rk.cleanup_models("./models")
+            
