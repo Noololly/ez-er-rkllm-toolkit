@@ -1,3 +1,5 @@
+This fork fixes a dependency issue, and adds a feature to save the converted .rkllm file to the local disk. 
+
 # EZ-ER-RKLLM-Toolkit
 
 ## Backstory
